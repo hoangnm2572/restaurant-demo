@@ -1,13 +1,13 @@
 const VARIANTS = {
-  primary: 'bg-crimson hover:bg-crimson-deep text-cream border border-crimson/50 hover:shadow-lg hover:shadow-crimson/30',
-  outline: 'border border-gold/50 hover:border-gold text-gold hover:text-gold-light',
-  ghost:   'text-cream/70 hover:text-gold border border-transparent',
+  primary: 'btn-primary',
+  outline: 'btn-outline',
+  ghost:   'text-cream/70 hover:text-gold border border-transparent transition-colors duration-300',
 }
 
 export default function Button({ children, variant = 'primary', href, onClick, className = '', type = 'button', disabled = false, ...props }) {
   const base = [
-    'inline-block px-8 py-3 text-sm tracking-[0.2em] uppercase font-medium',
-    'transition-all duration-300 cursor-pointer',
+    'inline-block px-8 py-3 text-sm tracking-[0.18em] uppercase font-medium',
+    'cursor-pointer select-none',
     VARIANTS[variant],
     disabled && 'opacity-40 cursor-not-allowed pointer-events-none',
     className,

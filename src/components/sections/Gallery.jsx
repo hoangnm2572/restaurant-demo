@@ -10,7 +10,7 @@ export default function Gallery() {
   const t = T[lang].gallery
 
   return (
-    <section id="gallery" style={{ background: 'var(--color-cream)', padding: '112px 0' }}>
+    <section id="gallery" style={{ background: 'var(--color-cream)', padding: '72px 0' }}>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 24 }}

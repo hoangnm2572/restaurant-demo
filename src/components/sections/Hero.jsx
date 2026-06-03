@@ -59,7 +59,7 @@ export default function Hero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.2, delay: 0.3 }}
-          className="flex items-center gap-4 mb-8"
+          className="flex items-center gap-4 mb-5"
         >
           <div className="w-20 h-px bg-gold/50" />
           <span className="text-gold text-base">✦</span>
@@ -111,7 +111,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1 }}
-          className="text-cream/55 text-lg md:text-xl mb-12 italic"
+          className="text-cream/55 text-lg md:text-xl mb-8 italic"
           style={{ fontFamily: 'var(--font-serif)' }}
         >
           <AnimatePresence mode="wait">

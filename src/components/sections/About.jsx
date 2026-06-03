@@ -36,7 +36,7 @@ export default function About() {
   const statLabels = [t.stat1, t.stat2, t.stat3]
 
   return (
-    <section id="about" style={{ background: 'var(--color-cream)', padding: '112px 0', borderTop: '1px solid rgba(201,164,90,.18)' }}>
+    <section id="about" style={{ background: 'var(--color-cream)', padding: '72px 0', borderTop: '1px solid rgba(201,164,90,.18)' }}>
       <Container>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }}
           className="md-grid-2col">
@@ -109,7 +109,7 @@ export default function About() {
               </AnimatePresence>
             </SectionHeader>
 
-            <div style={{ width: 48, height: 2, background: 'var(--color-gold)', marginBottom: 24, marginTop: -32 }} />
+            <div style={{ width: 48, height: 2, background: 'var(--color-gold)', marginBottom: 24, marginTop: -8 }} />
 
             <AnimatePresence mode="wait">
               <motion.div

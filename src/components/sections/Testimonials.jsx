@@ -36,7 +36,7 @@ export default function Testimonials() {
   const t = T[lang].testimonials
 
   return (
-    <section style={{ background: 'var(--color-cream-dark)', padding: '112px 0', borderTop: '1px solid rgba(201,164,90,.15)' }}>
+    <section style={{ background: 'var(--color-cream-dark)', padding: '72px 0', borderTop: '1px solid rgba(201,164,90,.15)' }}>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 24 }}

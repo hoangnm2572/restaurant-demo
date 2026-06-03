@@ -11,7 +11,7 @@ export default function Highlights() {
   const items = T[lang].highlights.items
 
   return (
-    <section style={{ background: 'var(--color-cream-dark)', padding: '80px 0' }}>
+    <section style={{ background: 'var(--color-cream-dark)', padding: '52px 0' }}>
       <Container>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24 }}>
           {items.map((f, i) => {

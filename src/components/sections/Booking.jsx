@@ -17,7 +17,7 @@ export default function Booking() {
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
 
   return (
-    <section id="booking" style={{ background: 'var(--color-ink)', padding: '112px 0', position: 'relative' }}>
+    <section id="booking" style={{ background: 'var(--color-ink)', padding: '72px 0', position: 'relative' }}>
       {/* Bg texture */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
@@ -52,7 +52,7 @@ export default function Booking() {
               </AnimatePresence>
             </SectionHeader>
 
-            <div style={{ width: 40, height: 1, background: 'var(--color-gold)', marginBottom: 20, marginTop: -32 }} />
+            <div style={{ width: 40, height: 1, background: 'var(--color-gold)', marginBottom: 20, marginTop: -8 }} />
 
             <AnimatePresence mode="wait">
               <motion.p

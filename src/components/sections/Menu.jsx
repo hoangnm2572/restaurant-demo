@@ -142,7 +142,7 @@ export default function Menu() {
   })
 
   return (
-    <section id="menu" style={{ background: 'var(--color-ink)', padding: '112px 0' }}>
+    <section id="menu" style={{ background: 'var(--color-ink)', padding: '72px 0' }}>
       <Container>
         {/* Header */}
         <motion.div

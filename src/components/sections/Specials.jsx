@@ -37,7 +37,7 @@ export default function Specials() {
   const t = T[lang].specials
 
   return (
-    <section id="specials" style={{ background: 'var(--color-ink-mid)', padding: '112px 0' }}>
+    <section id="specials" style={{ background: 'var(--color-ink-mid)', padding: '72px 0' }}>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 24 }}

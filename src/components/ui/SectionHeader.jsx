@@ -1,6 +1,6 @@
 export default function SectionHeader({ pretitle, children, align = 'center', dark = false, className = '' }) {
   return (
-    <div style={{ marginBottom: '4rem', textAlign: align === 'center' ? 'center' : 'left' }} className={className}>
+    <div style={{ marginBottom: '1.75rem', textAlign: align === 'center' ? 'center' : 'left' }} className={className}>
       {pretitle && (
         <p style={{
           fontFamily: 'var(--font-sans)',
