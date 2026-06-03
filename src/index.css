@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Warm dark tones / nâu đen ────────── */
+  --color-ink:           #1C0A00;
+  --color-ink-mid:       #2D1407;
+  --color-ink-light:     #3D2010;
+
+  /* ── Vietnamese crimson / đỏ son ─────── */
+  --color-crimson:       #9B1B2E;
+  --color-crimson-deep:  #6F1020;
+  --color-crimson-light: #C4354A;
+
+  /* ── Gold / vàng ─────────────────────── */
+  --color-gold:          #C9A45A;
+  --color-gold-light:    #E8C87A;
+  --color-gold-pale:     #F5E6C0;
+
+  /* ── Cream / kem ─────────────────────── */
+  --color-cream:         #FDF6E3;
+  --color-cream-dark:    #F0E5C8;
+
+  /* ── Bamboo / xanh tre ───────────────── */
+  --color-bamboo:        #5A7A4A;
+  --color-bamboo-light:  #7A9A6A;
+
+  /* ── Neutrals ────────────────────────── */
+  --color-stone:         #6B6259;
+  --color-stone-light:   #9A9089;
+  --color-charcoal:      #1A1A1A;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans:  "Be Vietnam Pro", system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ────────────────────────── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 3px; }
+
+/* ── Gold divider ────────────────────── */
+.divider-gold {
+  display: flex; align-items: center; gap: 12px; color: var(--color-gold);
+}
+.divider-gold::before,
+.divider-gold::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+}
+
+/* ── Subtle Vietnamese diamond pattern ── */
+.pattern-bg {
+  background-image:
+    repeating-linear-gradient(45deg,  transparent, transparent 28px, rgba(155,27,46,.025) 28px, rgba(155,27,46,.025) 29px),
+    repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(155,27,46,.025) 28px, rgba(155,27,46,.025) 29px);
+}
+
+/* ── Gallery hover ───────────────────── */
+.gallery-item { overflow: hidden; position: relative; }
+.gallery-item img { transition: transform .65s cubic-bezier(.4,0,.2,1); }
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(28,10,0,.9) 0%, transparent 55%);
+  opacity: 0; transition: opacity .35s;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+/* ── Input field ─────────────────────── */
+.input-field {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(201,164,90,.22);
+  color: #fff;
+  padding: 11px 14px;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  outline: none;
+  transition: border-color .25s;
+  border-radius: 2px;
+}
+.input-field::placeholder { color: rgba(255,255,255,.35); }
+.input-field:focus        { border-color: var(--color-gold); }
+.input-field option       { background: var(--color-ink); color: #fff; }
+.date-input               { color-scheme: dark; }
+
+/* ── Floating particles ──────────────── */
+@keyframes float-up {
+  0%   { transform: translateY(0) rotate(0deg); opacity: .5; }
+  100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+.particle { position: absolute; bottom: -10px; border-radius: 50%; animation: float-up linear infinite; pointer-events: none; }
+
+/* ── Scroll bounce ───────────────────── */
+@keyframes bounce-y { 0%,100% { transform:translateY(0); } 50% { transform:translateY(8px); } }
+.bounce-y { animation: bounce-y 1.8s ease-in-out infinite; }
+
+/* ── Stars ───────────────────────────── */
+.stars { color: var(--color-gold); letter-spacing: 2px; }
+
+/* ── Lift-on-hover card ──────────────── */
+.hover-lift {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(28,10,0,.13);
+}
+
+/* ── Responsive 2-col grids ──────────── */
+@media (min-width: 768px) {
+  .md-grid-2col   { grid-template-columns: 1fr 1fr !important; }
+  .booking-grid   { grid-template-columns: 2fr 3fr !important; gap: 4rem !important; }
+}
+
+/* ── Specials card ───────────────────── */
+.special-card { overflow: hidden; }
+.special-card img { transition: transform .7s cubic-bezier(.4,0,.2,1); }
+.special-card:hover img { transform: scale(1.06); }
+
+/* ── Navbar responsive ───────────────── */
+.book-btn-desktop { display: none !important; }
+.desktop-nav      { display: none !important; }
+@media (min-width: 768px) {
+  .book-btn-desktop { display: inline-block !important; }
+  .hamburger-btn    { display: none !important; }
+  .desktop-nav      { display: flex !important; }
+}
