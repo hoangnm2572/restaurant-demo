@@ -28,7 +28,7 @@ export default function HomePage() {
     <>
       <ScrollProgress />
       <Navbar />
-      <main style={{ overflowX: 'hidden' }}>
+      <main>
         <Hero />
         <Highlights />
         <About />

@@ -5,6 +5,7 @@ import SectionHeader from '../ui/SectionHeader'
 import Container from '../ui/Container'
 import { useLang } from '../../context/LangContext'
 import { T } from '../../data/translations'
+import { RESTAURANT } from '../../data/restaurant'
 
 const IMGS = {
   pho:     'https://lh3.googleusercontent.com/aida-public/AB6AXuA0QwzU7rv1shkqI9Hnwe0lFekRO6CzwUhDkOpVn4Qjv_D64hymt94FdZROCFqMOVbkzUkVZ4lx-niWm8TBZc5qFWFsSXPxhcQ9F6eaqip8TweFgPUfxNETQYyYi2osu75M5AA6kd2xDA3aw2C3ATZoqgtnrxPMoXSLpqAB6VUXG4WwxgW9D0qRtTuKvxQRtS25EiWqwVyBbcI1uKq6uw9Z9J_Qyrdny5p85JUPCbkOZd1YCmiIGDR2E11ZmHd9towem18zIX11tks1',
@@ -142,8 +143,31 @@ export default function Menu() {
   })
 
   return (
-    <section id="menu" style={{ background: 'var(--color-ink)', padding: '72px 0' }}>
-      <Container>
+    <section id="menu" style={{ background: 'var(--color-ink)', padding: '72px 0', position: 'relative', overflow: 'hidden' }}>
+      {/* Background restaurant photo */}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        backgroundImage: `url('/images/z7987836278188_6294d9e333a3f668f28729f599542512.jpg')`,
+        backgroundSize: 'cover', backgroundPosition: 'center',
+        opacity: 0.09, filter: 'blur(2px)',
+      }} />
+      {/* Ambient glow orbs */}
+      <div className="ambient-orb" style={{
+        width: 700, height: 700, top: '-5%', left: '-12%',
+        background: 'rgba(201,164,90,.22)',
+        animationDuration: '14s',
+      }} />
+      <div className="ambient-orb" style={{
+        width: 600, height: 600, bottom: '5%', right: '-10%',
+        background: 'rgba(155,27,46,.28)',
+        animationDuration: '18s', animationDelay: '-6s',
+      }} />
+      <div className="ambient-orb" style={{
+        width: 350, height: 350, top: '45%', left: '45%',
+        background: 'rgba(201,164,90,.12)',
+        animationDuration: '22s', animationDelay: '-10s',
+      }} />
+      <Container style={{ position: 'relative', zIndex: 1 }}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -384,8 +408,22 @@ function CoverPage({ variant, mobile = false }) {
       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
       padding: '2rem', textAlign: 'center', position: 'relative', overflow: 'hidden',
     }}>
+      {/* Restaurant photo texture */}
       <div style={{
-        position: 'absolute', inset: 0, opacity: 0.15,
+        position: 'absolute', inset: 0,
+        backgroundImage: `url('/images/z7987836301273_48434644939dbf020b999f3d422e6623.jpg')`,
+        backgroundSize: 'cover', backgroundPosition: isLeft ? 'left center' : 'center',
+        opacity: isLeft ? 0.1 : 0.18,
+        mixBlendMode: 'luminosity',
+      }} />
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: isLeft
+          ? 'linear-gradient(150deg, rgba(74,10,20,.92), rgba(45,5,9,.95))'
+          : 'linear-gradient(150deg, rgba(92,14,26,.85), rgba(58,10,16,.92))',
+      }} />
+      <div style={{
+        position: 'absolute', inset: 0, opacity: 0.12,
         backgroundImage: 'repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(201,164,90,.12) 18px,rgba(201,164,90,.12) 19px),repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(201,164,90,.12) 18px,rgba(201,164,90,.12) 19px)',
       }} />
       <div style={{ position: 'absolute', inset: 14, border: `1px solid rgba(201,164,90,${isLeft ? '.15' : '.2'})`, pointerEvents: 'none' }} />
@@ -413,12 +451,12 @@ function CoverPage({ variant, mobile = false }) {
               Nhà hàng ẩm thực
             </p>
             <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: mobile ? '3rem' : 'clamp(1.8rem,4.5vw,3.5rem)', fontWeight: 700, color: '#fdf6e3', lineHeight: 1, marginBottom: 8 }}>
-              Bếp Hà Thành
+              {RESTAURANT.name}
             </h2>
             <div style={{ width: 56, height: 1, background: 'rgba(201,164,90,.5)', margin: '16px auto' }} />
             <p style={{ fontFamily: 'var(--font-serif)', color: 'rgba(201,164,90,.8)', fontSize: mobile ? '1.2rem' : 'clamp(.9rem,1.8vw,1.2rem)', fontStyle: 'italic' }}>Thực Đơn</p>
             <p style={{ marginTop: 28, fontFamily: 'var(--font-sans)', color: 'rgba(253,246,227,.18)', fontSize: 10, letterSpacing: '0.22em' }}>
-              24 Hàng Bè · Hoàn Kiếm · Hà Nội
+              {RESTAURANT.address}
             </p>
           </>
         )}
@@ -517,7 +555,7 @@ function ContentPage({ page, side, mobile = false }) {
 
         {/* Footer */}
         <div style={{ marginTop: 10, paddingTop: 8, borderTop: '1px solid rgba(155,27,46,.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontFamily: 'var(--font-serif)', fontSize: 9, color: 'rgba(28,10,0,.2)', fontStyle: 'italic' }}>Bếp Hà Thành</span>
+          <span style={{ fontFamily: 'var(--font-serif)', fontSize: 9, color: 'rgba(28,10,0,.2)', fontStyle: 'italic' }}>{RESTAURANT.name}</span>
           <span style={{ color: 'rgba(155,27,46,.22)', fontSize: 10, letterSpacing: 4 }}>✦✦✦</span>
         </div>
       </div>

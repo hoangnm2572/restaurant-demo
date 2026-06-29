@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { MapPin, Clock, Phone } from 'lucide-react'
+import { MapPin, Clock, Phone, Mail } from 'lucide-react'
 import SectionHeader from '../ui/SectionHeader'
 import Container from '../ui/Container'
 import { RESTAURANT } from '../../data/restaurant'
@@ -53,7 +53,7 @@ export default function About() {
             <div style={{ position: 'absolute', bottom: -14, right: -14, width: '65%', height: '65%', border: '1px solid rgba(155,27,46,.15)', pointerEvents: 'none', zIndex: 0 }} />
             <div style={{ position: 'relative', zIndex: 1, overflow: 'hidden' }}>
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0QwzU7rv1shkqI9Hnwe0lFekRO6CzwUhDkOpVn4Qjv_D64hymt94FdZROCFqMOVbkzUkVZ4lx-niWm8TBZc5qFWFsSXPxhcQ9F6eaqip8TweFgPUfxNETQYyYi2osu75M5AA6kd2xDA3aw2C3ATZoqgtnrxPMoXSLpqAB6VUXG4WwxgW9D0qRtTuKvxQRtS25EiWqwVyBbcI1uKq6uw9Z9J_Qyrdny5p85JUPCbkOZd1YCmiIGDR2E11ZmHd9towem18zIX11tks1"
+                src="/images/z7987836290602_3f4ef2ca8063482b1b0a741089422f59.jpg"
                 alt={`Không gian ${RESTAURANT.name}`}
                 style={{ width: '100%', height: 500, objectFit: 'cover', display: 'block' }}
               />
@@ -155,6 +155,7 @@ export default function About() {
                 { Icon: MapPin, text: RESTAURANT.address },
                 { Icon: Clock,  text: `${RESTAURANT.hours[0].time} (${lang === 'vi' ? 'các ngày trong tuần' : 'daily'})` },
                 { Icon: Phone,  text: RESTAURANT.phone },
+                { Icon: Mail,   text: RESTAURANT.email },
               ].map(({ Icon, text }) => (
                 <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 14, color: 'rgba(28,10,0,.55)' }}>
                   <Icon size={14} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />

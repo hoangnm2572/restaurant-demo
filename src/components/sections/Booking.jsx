@@ -17,14 +17,17 @@ export default function Booking() {
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
 
   return (
-    <section id="booking" style={{ background: 'var(--color-ink)', padding: '72px 0', position: 'relative' }}>
+    <section id="booking" style={{ background: 'var(--color-ink)', padding: '72px 0', position: 'relative', overflow: 'hidden' }}>
       {/* Bg texture */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        backgroundImage: `url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=50')`,
+        backgroundImage: `url('/images/z7987836285644_a0998905fab5c35a8697a85971323a2d.jpg')`,
         backgroundSize: 'cover', backgroundPosition: 'center',
-        opacity: 0.07, filter: 'grayscale(100%)',
+        opacity: 0.1, filter: 'grayscale(40%)',
       }} />
+      {/* Ambient orbs */}
+      <div className="ambient-orb" style={{ width: 800, height: 800, top: '-25%', left: '-18%', background: 'rgba(201,164,90,.18)', animationDuration: '20s' }} />
+      <div className="ambient-orb" style={{ width: 600, height: 600, bottom: '-15%', right: '-12%', background: 'rgba(155,27,46,.22)', animationDuration: '15s', animationDelay: '-7s' }} />
 
       <Container style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }} className="booking-grid">

@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock } from 'lucide-react'
+import { MapPin, Phone, Clock, Mail } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from '../ui/Container'
 import { RESTAURANT } from '../../data/restaurant'
@@ -170,6 +170,14 @@ export default function Footer() {
               >
                 <Phone size={14} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />
                 <span style={{ fontFamily: 'var(--font-sans)' }}>{RESTAURANT.phone}</span>
+              </a>
+              <a href={`mailto:${RESTAURANT.email}`}
+                style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'rgba(253,246,227,.38)', textDecoration: 'none', fontSize: 13.5, transition: 'color .2s' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(253,246,227,.7)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(253,246,227,.38)'}
+              >
+                <Mail size={14} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />
+                <span style={{ fontFamily: 'var(--font-sans)' }}>{RESTAURANT.email}</span>
               </a>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'rgba(253,246,227,.38)', fontSize: 13.5 }}>
                 <Clock size={14} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />

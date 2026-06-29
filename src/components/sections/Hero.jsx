@@ -5,13 +5,13 @@ import { RESTAURANT } from '../../data/restaurant'
 import { useLang } from '../../context/LangContext'
 import { T } from '../../data/translations'
 
-const particles = Array.from({ length: 14 }, (_, i) => ({
+const particles = Array.from({ length: 22 }, (_, i) => ({
   id: i,
-  left: `${(i * 7.3) % 100}%`,
-  size: 3 + (i % 4),
-  duration: 8 + (i % 6),
-  delay: (i * 0.8) % 5,
-  color: i % 3 === 0 ? 'var(--color-gold)' : i % 3 === 1 ? 'var(--color-crimson)' : 'rgba(253,246,233,0.4)',
+  left: `${(i * 4.7) % 100}%`,
+  size: 3 + (i % 5),
+  duration: 7 + (i % 7),
+  delay: (i * 0.6) % 6,
+  color: i % 4 === 0 ? 'var(--color-gold)' : i % 4 === 1 ? 'var(--color-crimson)' : i % 4 === 2 ? 'rgba(253,246,233,0.55)' : 'rgba(201,164,90,0.7)',
 }))
 
 export default function Hero() {
@@ -28,12 +28,12 @@ export default function Hero() {
     <section ref={ref} className="relative h-screen min-h-160 overflow-hidden">
       <motion.div style={{ y: bgY }} className="absolute inset-0 scale-110">
         <img
-          src="https://lh3.googleusercontent.com/aida/AP1WRLuKPTYJEIg90b1KHcUeR0WcaTYL9Qu465w9UOhpYUUmijTJgsnwQAlkYLpLX3lMIyi7zzEM52j3rhAxfm_IRAvikfqDg_dH_3cZAqBM34I8DqhLX4V4Bd7A-K8TJjRRgfVmoBn_1X_ByqNG7MskJT-JjRdf4Jb2oAvt_wAGvQ7uTwIfNI7Ef3UE8fHWGa6ag0p_FAdr12V4zal2YvU5AaBLaV0UEspuLRhFhmDs400YkVl5J6H0_KFBxhDv"
+          src="/images/z7987836301273_48434644939dbf020b999f3d422e6623.jpg"
           alt={`Không gian ${RESTAURANT.name}`}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-ink/75 via-ink/55 to-ink/85" />
-        <div className="absolute inset-0 bg-linear-to-r from-crimson-deep/25 via-transparent to-ink/20" />
+        <div className="absolute inset-0 bg-linear-to-b from-ink/65 via-ink/40 to-ink/80" />
+        <div className="absolute inset-0 bg-linear-to-r from-ink/30 via-transparent to-ink/15" />
       </motion.div>
 
       {particles.map((p) => (
@@ -81,7 +81,7 @@ export default function Hero() {
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.3 }}
             >
-              {t.location} {RESTAURANT.since}
+              {t.location}
             </motion.span>
           </AnimatePresence>
         </motion.p>

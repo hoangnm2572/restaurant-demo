@@ -1,10 +1,11 @@
 export const RESTAURANT = {
-  name: 'Bếp Hà Thành',
+  name: 'Gạo Restaurant',
   tagline: 'Ẩm thực thuần Việt',
-  since: 1988,
-  address: '24 Hàng Bè, Hoàn Kiếm, Hà Nội',
-  phone: '024 3926 1988',
-  phoneHref: 'tel:02439261988',
+  since: 2026,
+  address: '59 Hàng Trống, Hoàn Kiếm, Hà Nội',
+  phone: '0788 868 8668',
+  phoneHref: 'tel:07888688668',
+  email: 'longbui.bui@gmail.com',
   mapsHref: 'https://maps.google.com',
 
   hours: [
@@ -14,14 +15,14 @@ export const RESTAURANT = {
   ],
 
   story: [
-    'Bếp Hà Thành tọa lạc giữa lòng 36 phố phường, nơi những mái ngói rêu phong còn lưu giữ linh hồn Hà Nội xưa. Hơn ba thập kỷ, chúng tôi giữ nguyên công thức gia truyền — từ nồi phở hầm 12 tiếng đến mẻ chả giò giòn rụm buổi sáng sớm.',
-    'Mỗi món ăn là một câu chuyện, mỗi nguyên liệu được chọn lọc kỹ lưỡng từ chợ Đồng Xuân mỗi buổi sáng. Đây không chỉ là nơi ăn uống — đây là nơi bạn tìm về ký ức.',
+    'Gạo Restaurant tọa lạc tại 59 Hàng Trống, Hoàn Kiếm — ngay giữa lòng phố cổ Hà Nội. Chúng tôi mang đến không gian ẩm thực thuần Việt đẳng cấp, nơi hương vị truyền thống được tôn vinh trong nội thất Đông Dương tinh tế.',
+    'Mỗi món ăn là một câu chuyện về ẩm thực Hà Nội, mỗi nguyên liệu được chọn lọc kỹ lưỡng từ những nguồn chuẩn nhất. Hãy đặt bàn để trở thành những vị khách đầu tiên của chúng tôi.',
   ],
 
   stats: [
-    { value: '35+', label: 'Năm kinh nghiệm' },
-    { value: '60+', label: 'Món đặc sản' },
+    { value: '60+', label: 'Món ẩm thực' },
     { value: '200+', label: 'Chỗ ngồi' },
+    { value: '5★', label: 'Tiêu chuẩn' },
   ],
 
   social: {

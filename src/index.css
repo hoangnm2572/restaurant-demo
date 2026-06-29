@@ -108,6 +108,20 @@ body {
 /* ── Stars ───────────────────────────── */
 .stars { color: var(--color-gold); letter-spacing: 2px; }
 
+/* ── Gold animated underline ─────────── */
+@keyframes gold-line-in {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── Section fade-edge top/bottom ──── */
+.fade-edge-y::before,
+.fade-edge-y::after {
+  content: ''; position: absolute; left: 0; right: 0; height: 60px; pointer-events: none; z-index: 2;
+}
+.fade-edge-y::before { top: 0; background: linear-gradient(to bottom, var(--color-ink), transparent); }
+.fade-edge-y::after  { bottom: 0; background: linear-gradient(to top, var(--color-ink), transparent); }
+
 /* ── Lift-on-hover card ──────────────── */
 .hover-lift {
   transition: transform .3s ease, box-shadow .3s ease;
@@ -127,6 +141,37 @@ body {
 .special-card { overflow: hidden; }
 .special-card img { transition: transform .7s cubic-bezier(.4,0,.2,1); }
 .special-card:hover img { transform: scale(1.06); }
+
+/* ── Gold pulse (pretitle icon) ─────── */
+@keyframes gold-pulse {
+  0%, 100% { opacity: .65; text-shadow: 0 0 6px rgba(201,164,90,.25); }
+  50%       { opacity: 1;   text-shadow: 0 0 18px rgba(201,164,90,.9), 0 0 40px rgba(201,164,90,.4); }
+}
+.pretitle-glow { animation: gold-pulse 2.8s ease-in-out infinite; display: inline-block; }
+
+/* ── Ambient orb float ───────────────── */
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(24px, -28px) scale(1.08); }
+  66%       { transform: translate(-18px, 16px) scale(0.94); }
+}
+.ambient-orb {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  animation: orb-float linear infinite;
+  filter: blur(40px);
+}
+
+/* ── Shimmer sweep (reusable) ─────────── */
+@keyframes shimmer-x {
+  0%   { transform: translateX(-100%) skewX(-18deg); }
+  100% { transform: translateX(250%)  skewX(-18deg); }
+}
+
+/* ── Lantern sway ────────────────────── */
+@keyframes lantern-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50%       { transform: rotate(4deg); }
+}
 
 /* ── Buttons ─────────────────────────── */
 .btn-primary {
