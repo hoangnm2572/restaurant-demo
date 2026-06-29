@@ -443,7 +443,7 @@ function CoverPage({ variant, mobile = false }) {
               "Vị ngon gốc rễ<br />từ lòng phố cổ"
             </p>
             <div style={{ width: 36, height: 1, background: 'rgba(201,164,90,.4)', margin: '18px auto 0' }} />
-            <p style={{ marginTop: 22, fontFamily: 'var(--font-sans)', color: 'rgba(201,164,90,.5)', fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase' }}>Est. 1988</p>
+            <p style={{ marginTop: 22, fontFamily: 'var(--font-sans)', color: 'rgba(201,164,90,.5)', fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase' }}>59 Hàng Trống</p>
           </>
         ) : (
           <>

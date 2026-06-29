@@ -4,9 +4,9 @@ export const RESTAURANT = {
   since: 2026,
   address: '59 Hàng Trống, Hoàn Kiếm, Hà Nội',
   phone: '0788 868 8668',
-  phoneHref: 'tel:07888688668',
+  phoneHref: 'tel:+84788868668',
   email: 'longbui.bui@gmail.com',
-  mapsHref: 'https://maps.google.com',
+  mapsHref: 'https://www.google.com/maps/search/?api=1&query=59+H%C3%A0ng+Tr%E1%BB%91ng%2C+Ho%C3%A0n+Ki%E1%BA%BFm%2C+H%C3%A0+N%E1%BB%99i',
 
   hours: [
     { day: 'Thứ Hai – Thứ Sáu', time: '07:00 – 22:00' },

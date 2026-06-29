@@ -61,7 +61,7 @@ export default function Footer() {
                 transition={{ duration: 0.25 }}
                 style={{ fontFamily: 'var(--font-sans)', fontSize: 13.5, lineHeight: 1.75, color: 'rgba(253,246,227,.38)', maxWidth: 240, marginBottom: 24 }}
               >
-                {t.tagline} {RESTAURANT.since}.
+                {t.tagline}.
               </motion.p>
             </AnimatePresence>
             {/* Social icons */}

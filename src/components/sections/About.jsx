@@ -70,19 +70,10 @@ export default function About() {
                 boxShadow: '0 20px 50px rgba(0,0,0,.35)',
               }}
             >
-              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.9rem', fontWeight: 600, color: 'var(--color-cream)', lineHeight: 1 }}>{RESTAURANT.since}</p>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={lang + 'est'}
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.25 }}
-                  style={{ fontFamily: 'var(--font-sans)', fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(253,246,227,.6)', marginTop: 4 }}
-                >
-                  {t.est}
-                </motion.p>
-              </AnimatePresence>
+              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--color-gold)', lineHeight: 1 }}>59</p>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(253,246,227,.6)', marginTop: 5 }}>
+                Hàng Trống
+              </p>
             </motion.div>
           </motion.div>
 
