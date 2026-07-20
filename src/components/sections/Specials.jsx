@@ -7,28 +7,28 @@ import { T } from '../../data/translations'
 
 const DISHES = [
   {
-    id: 'pho',
-    name: 'Phở Bò Truyền Thống',
-    desc: 'Nước dùng hầm 12 tiếng từ xương bò già, thịt tái chín hoa bày đẹp mắt. Công thức ba thế hệ gìn giữ không đổi.',
-    price: '85.000đ',
-    tag: 'Bán chạy nhất',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA0QwzU7rv1shkqI9Hnwe0lFekRO6CzwUhDkOpVn4Qjv_D64hymt94FdZROCFqMOVbkzUkVZ4lx-niWm8TBZc5qFWFsSXPxhcQ9F6eaqip8TweFgPUfxNETQYyYi2osu75M5AA6kd2xDA3aw2C3ATZoqgtnrxPMoXSLpqAB6VUXG4WwxgW9D0qRtTuKvxQRtS25EiWqwVyBbcI1uKq6uw9Z9J_Qyrdny5p85JUPCbkOZd1YCmiIGDR2E11ZmHd9towem18zIX11tks1',
-  },
-  {
-    id: 'nem',
-    name: 'Nem Rán Phố Cổ',
-    desc: 'Nem chiên vàng giòn rụm, nhân thịt heo, mộc nhĩ, miến thơm. Chấm cùng nước mắm chua ngọt pha tỏi ớt tươi.',
-    price: '55.000đ',
-    tag: 'Khai vị số 1',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGm7_KR619QVzjlQNL-RjaU0EvZoAlq4xPrutcwAuDM0PfsJwJJU1LSuR-AIEWWomgyOK2a31whqTMYIDp2OuyLNbyRDzYSlySuX7M_2TcQXqzy-aASR0gKZisJh_jHfCM56Y_1p5DVSgH-67MqMnyW2ITI2KYnQQc0z-UXkhz3uW3AAOeNCIS16E_Ltv5YjHGQ2Egru45UZ1n4vWv1m3AWgapb8EHq99yNfz2Bv4gn1HR1R6HYBWHd3T8gfj14p7HcScQzp2Fs5aM',
-  },
-  {
     id: 'bungcha',
     name: 'Bún Chả Hà Nội',
     desc: 'Chả viên & chả miếng nướng than hoa, bún tươi, rau sống thơm mát. Nước chấm pha chuẩn công thức Hà Nội gốc.',
-    price: '75.000đ',
+    price: '130.000đ',
     tag: 'Đặc sản phố cổ',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAtgZ2_F0E7ie2CD1Sc4hp57eBJzW4zfpy8tCm7nRk8qEVMtWj7MpKAbwUTaIls71-CNd5BOEKmkkPYG2Moj7L35_l7lyA5SIZns5ONI-h8KIZvLagUsu4TlqXu6Y6bjgY-0UpoQ11q0gI-6-gnSWLNgro7vARdD3u51H00dIV-qP40NYVAStRPYijWljbq0mnhLHPpk5eRaQgCus41tWZRb9t3vnpzdQp45Ghe0BFIEs6Dv0X2tesZC9NALX5bK8Q-PIHoG_V7PrJk',
+    img: '/images/food_bun_cha.jpg',
+  },
+  {
+    id: 'pho',
+    name: 'Phở Bò Truyền Thống',
+    desc: 'Nước dùng hầm 12 tiếng từ xương bò già, thịt tái chín hoa bày đẹp mắt. Hương vị Hà Nội thuần chất, không đổi thay.',
+    price: '110.000đ',
+    tag: 'Bán chạy nhất',
+    img: '/images/food_pho_bo.jpg',
+  },
+  {
+    id: 'nem',
+    name: 'Nem Rán Hà Nội',
+    desc: 'Nem chiên vàng giòn rụm, nhân thịt heo, mộc nhĩ, miến thơm. Chấm cùng nước mắm chua ngọt pha tỏi ớt tươi.',
+    price: '85.000đ',
+    tag: 'Khai vị số 1',
+    img: '/images/food_nem_ran.jpg',
   },
 ]
 

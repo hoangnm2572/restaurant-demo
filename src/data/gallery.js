@@ -29,4 +29,34 @@ export const GALLERY_IMAGES = [
     src: '/images/z7987836307921_aff7a332f6be8dc89ee8d7d9792eb5b3.jpg',
     label: 'Đại sảnh ánh vàng',
   },
+  {
+    id: 'food-bun-cha',
+    src: '/images/food_bun_cha_2.jpg',
+    label: 'Bún Chả Hà Nội',
+  },
+  {
+    id: 'food-pho-ga',
+    src: '/images/food_pho_ga_2.jpg',
+    label: 'Phở Gà Truyền Thống',
+  },
+  {
+    id: 'food-bo-nuong',
+    src: '/images/food_bo_nuong.jpg',
+    label: 'Bò Nướng Ống Tre',
+  },
+  {
+    id: 'food-banh-xeo',
+    src: '/images/food_banh_xeo_2.jpg',
+    label: 'Bánh Xèo Giòn Rụm',
+  },
+  {
+    id: 'food-goi-cuon',
+    src: '/images/food_goi_cuon_2.jpg',
+    label: 'Gỏi Cuốn Tôm Thịt',
+  },
+  {
+    id: 'food-com-rang',
+    src: '/images/food_com_rang.jpg',
+    label: 'Cơm Rang Hải Sản',
+  },
 ]

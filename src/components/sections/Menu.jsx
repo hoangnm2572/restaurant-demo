@@ -8,60 +8,131 @@ import { T } from '../../data/translations'
 import { RESTAURANT } from '../../data/restaurant'
 
 const IMGS = {
-  pho:     'https://lh3.googleusercontent.com/aida-public/AB6AXuA0QwzU7rv1shkqI9Hnwe0lFekRO6CzwUhDkOpVn4Qjv_D64hymt94FdZROCFqMOVbkzUkVZ4lx-niWm8TBZc5qFWFsSXPxhcQ9F6eaqip8TweFgPUfxNETQYyYi2osu75M5AA6kd2xDA3aw2C3ATZoqgtnrxPMoXSLpqAB6VUXG4WwxgW9D0qRtTuKvxQRtS25EiWqwVyBbcI1uKq6uw9Z9J_Qyrdny5p85JUPCbkOZd1YCmiIGDR2E11ZmHd9towem18zIX11tks1',
-  nemcuon: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGm7_KR619QVzjlQNL-RjaU0EvZoAlq4xPrutcwAuDM0PfsJwJJU1LSuR-AIEWWomgyOK2a31whqTMYIDp2OuyLNbyRDzYSlySuX7M_2TcQXqzy-aASR0gKZisJh_jHfCM56Y_1p5DVSgH-67MqMnyW2ITI2KYnQQc0z-UXkhz3uW3AAOeNCIS16E_Ltv5YjHGQ2Egru45UZ1n4vWv1m3AWgapb8EHq99yNfz2Bv4gn1HR1R6HYBWHd3T8gfj14p7HcScQzp2Fs5aM',
-  bungcha: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAtgZ2_F0E7ie2CD1Sc4hp57eBJzW4zfpy8tCm7nRk8qEVMtWj7MpKAbwUTaIls71-CNd5BOEKmkkPYG2Moj7L35_l7lyA5SIZns5ONI-h8KIZvLagUsu4TlqXu6Y6bjgY-0UpoQ11q0gI-6-gnSWLNgro7vARdD3u51H00dIV-qP40NYVAStRPYijWljbq0mnhLHPpk5eRaQgCus41tWZRb9t3vnpzdQp45Ghe0BFIEs6Dv0X2tesZC9NALX5bK8Q-PIHoG_V7PrJk',
-  cakho:   'https://lh3.googleusercontent.com/aida-public/AB6AXuB9daWNzoiFj9naRLWSe3wfYo8HBLyKU3RtiIqg6_-kMxnCLqxeOpIPNFVHBVDAiKiwx9QTHQeZ__UglJBcXSpT5Bfoi6Z_Y_QOy8kekXDeF4hrNhNVUZlsufCeXq-UO0aE6xB8de8sGDIiIMHbp5YHwvAjuhodlVEhjt5aH5sJsnKIQ-P1jAanffRy_Ze31Un1yD9Ml2iZvzW5bDwJ8mbxtnViecfPjpGsHUQfY2AdgfZJFGm_skfKGaE-E1QF7sfDm5OVzKPJBPBB',
-  coffee:  'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80',
-  food1:   'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80',
-  food2:   'https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=400&q=80',
-  food3:   'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=400&q=80',
+  bunCha:    '/images/food_bun_cha_2.jpg',
+  banhXeo:   '/images/food_banh_xeo_2.jpg',
+  chaCa:     '/images/food_banh_xeo.jpg',
+  boNuong:   '/images/food_bo_nuong.jpg',
+  nemRan:    '/images/food_nem_ran.jpg',
+  goiCuon:   '/images/food_goi_cuon_2.jpg',
+  goiCuonAlt:'/images/food_goi_cuon.jpg',
+  nemLui:    '/images/food_nem_lui_2.jpg',
+  nemLuiAlt: '/images/food_nem_lui.jpg',
+  nomXoai:   '/images/food_nom_xoai_2.jpg',
+  nomXoaiAlt:'/images/food_nom_xoai.jpg',
+  phoBo:     '/images/food_pho_bo.jpg',
+  phoGa:     '/images/food_pho_ga_2.jpg',
+  phoGaAlt:  '/images/food_pho_ga.jpg',
+  comRang:   '/images/food_com_rang.jpg',
+  bunChaAlt: '/images/food_bun_cha.jpg',
 }
 
 const SPREADS = [
+  // ── Spread 0: Bìa ──────────────────────────────────────────
   {
     left:  { type: 'cover', variant: 'left' },
     right: { type: 'cover', variant: 'right' },
   },
+
+  // ── Spread 1: Món Đặc Biệt + Khai Vị ──────────────────────
   {
     left: {
-      type: 'content', category: 'Khai Vị', subtitle: 'Appetizers',
+      type: 'content', category: 'Món Đặc Biệt', subtitle: 'Highly Recommended',
       items: [
-        { name: 'Nem cuốn tươi',      price: '45.000đ', desc: 'Tôm tươi, thịt luộc, rau sống, bánh tráng', img: IMGS.nemcuon, recommended: true },
-        { name: 'Chả giò chiên vàng', price: '55.000đ', desc: 'Nhân thịt heo, mộc nhĩ, miến, chiên giòn',  img: IMGS.food1 },
-        { name: 'Bánh cuốn Hà Nội',   price: '65.000đ', desc: 'Nhân thịt xay, hành phi thơm, nước chấm',  img: IMGS.food2 },
-        { name: 'Gỏi ngó sen',        price: '60.000đ', desc: 'Tôm thịt, rau thơm, đậu phộng, dấm tỏi',  img: IMGS.food3 },
+        { name: 'Bún chả Hà Nội',   price: '130.000đ', desc: 'Chả viên & chả miếng nướng than hoa, bún tươi, rau sống thơm', img: IMGS.bunCha,  recommended: true },
+        { name: 'Bánh xèo',         price: '130.000đ', desc: 'Vỏ giòn vàng rụm, tôm tươi, giá đỗ, nước chấm đặc biệt',      img: IMGS.banhXeo },
+        { name: 'Chả cá Hà Nội',   price: '160.000đ', desc: 'Cá fillet nướng nghệ thì là, mắm tôm, bún sợi, bánh đa bỏng',  img: IMGS.chaCa,  recommended: true },
+        { name: 'Bò nướng ống tre', price: '170.000đ', desc: 'Thịt bò tươi nướng trong ống tre, sốt gia vị đặc trưng',       img: IMGS.boNuong },
       ],
     },
     right: {
-      type: 'content', category: 'Món Chính', subtitle: 'Main Course',
+      type: 'content', category: 'Khai Vị', subtitle: 'Appetizers',
       items: [
-        { name: 'Phở bò truyền thống', price: '85.000đ', desc: 'Nước dùng hầm 12 tiếng, thịt tái chín', img: IMGS.pho, recommended: true },
-        { name: 'Bún chả Hà Nội',      price: '75.000đ', desc: 'Chả viên, chả miếng, bún tươi, rau sống', img: IMGS.bungcha },
-        { name: 'Bún bò Huế',          price: '80.000đ', desc: 'Giò heo, thịt bò, chả cua, sả tươi',     img: IMGS.food2 },
-        { name: 'Cơm bình dân',        price: '70.000đ', desc: 'Cơm tẻ thơm, 3 món tùy chọn theo ngày', img: IMGS.food1 },
+        { name: 'Nem rán Hà Nội',     price: '85.000đ',  desc: 'Nhân thịt heo, mộc nhĩ, miến thơm, chiên vàng giòn rụm',     img: IMGS.nemRan,  recommended: true },
+        { name: 'Gỏi cuốn tôm thịt', price: '105.000đ', desc: 'Tôm tươi, thịt luộc, bún sợi, rau sống cuốn bánh tráng mỏng', img: IMGS.goiCuon },
+        { name: 'Nem lụi',            price: '120.000đ', desc: 'Thịt heo xay ướp sả nướng than hoa, chấm tương đậu phộng',    img: IMGS.nemLui },
+        { name: 'Nộm xoài tôm',      price: '130.000đ', desc: 'Xoài xanh chua, tôm tươi, rau thơm, đậu phộng rang giòn',    img: IMGS.nomXoai },
       ],
     },
   },
+
+  // ── Spread 2: Phở & Mì Xào + Cơm Rang ────────────────────
   {
     left: {
-      type: 'content', category: 'Đặc Sản', subtitle: 'House Specials',
+      type: 'content', category: 'Phở & Mì Xào', subtitle: 'Noodles',
       items: [
-        { name: 'Chả cá Lã Vọng', price: '145.000đ', desc: 'Cá lăng tươi, nghệ, thì là, mắm tôm',       img: IMGS.cakho, recommended: true },
-        { name: 'Bún thang',      price: '95.000đ',  desc: 'Giò lụa, gà ta, trứng tráng, nước trong vắt', img: IMGS.pho },
-        { name: 'Xôi xéo',       price: '55.000đ',  desc: 'Nếp cái hoa vàng, đậu xanh, hành phi giòn',  img: IMGS.food2 },
-        { name: 'Bánh đúc nóng', price: '50.000đ',  desc: 'Mộc nhĩ, thịt bằm, hành lá, nước mắm',       img: IMGS.food3 },
+        { name: 'Phở bò tái chín',       price: '110.000đ', desc: 'Nước dùng hầm 12 tiếng từ xương bò, thịt tái chín thơm ngon',  img: IMGS.phoBo,     recommended: true },
+        { name: 'Phở gà ta',             price: '110.000đ', desc: 'Gà ta thả vườn, nước dùng trong vắt, hành lá thơm mát',         img: IMGS.phoGa },
+        { name: 'Phở chiên phồng',       price: '130.000đ', desc: 'Bánh phở chiên giòn phồng, thịt bò xào sốt dầu hào thơm ngon', img: IMGS.phoGaAlt },
+        { name: 'Phở / mì xào hải sản', price: '160.000đ', desc: 'Tôm, mực tươi xào cùng bánh phở hoặc mì trứng, rau củ xanh',   img: IMGS.goiCuonAlt },
       ],
     },
     right: {
-      type: 'content', category: 'Đồ Uống', subtitle: 'Beverages',
+      type: 'content', category: 'Cơm Rang', subtitle: 'Fried Rice',
       items: [
-        { name: 'Cà phê trứng',   price: '55.000đ', desc: 'Cà phê Robusta, lòng đỏ trứng gà, sữa đặc', img: IMGS.coffee, recommended: true },
-        { name: 'Bia hơi Hà Nội', price: '25.000đ', desc: 'Bia tươi chính gốc, uống ngay khi lạnh',     img: IMGS.food3 },
-        { name: 'Nước mía tươi',  price: '20.000đ', desc: 'Mía ép nguyên chất, tắc, đá viên',           img: IMGS.food1 },
-        { name: 'Trà sen Tây Hồ', price: '35.000đ', desc: 'Trà ướp hoa sen cổ truyền, thơm nức',        img: IMGS.coffee },
+        { name: 'Cơm rang hải sản', price: '150.000đ', desc: 'Tôm, mực tươi, trứng gà, cơm rang lửa lớn hạt rời thơm ngon',  img: IMGS.comRang,   recommended: true },
+        { name: 'Cơm rang tôm dứa', price: '150.000đ', desc: 'Tôm tươi, dứa thơm, ngô ngọt, cơm rang đặc biệt màu vàng ươm', img: IMGS.nomXoaiAlt },
+        { name: 'Cơm rang tôm',     price: '130.000đ', desc: 'Tôm tươi to, trứng gà, hành lá xanh, cơm dẻo hạt rời',         img: IMGS.goiCuon },
+        { name: 'Cơm rang bò',      price: '120.000đ', desc: 'Thịt bò mềm, ớt chuông, ngô ngọt, thơm mùi tiêu đen',          img: IMGS.boNuong },
       ],
     },
+  },
+
+  // ── Spread 3: Món Bò + Món Gà ─────────────────────────────
+  {
+    left: {
+      type: 'content', category: 'Món Bò', subtitle: 'Beef Dishes',
+      items: [
+        { name: 'Bò xào lúc lắc',         price: '170.000đ', desc: 'Thịt bò thăn mềm xào lúc lắc, ớt chuông, hành tây, khoai tây chiên', img: IMGS.boNuong,   recommended: true },
+        { name: 'Bò nướng sốt tiêu xanh', price: '150.000đ', desc: 'Thịt bò nướng than hoa, sốt tiêu xanh Campuchia thơm cay đặc biệt',   img: IMGS.bunChaAlt },
+        { name: 'Bò xào nấm tươi',        price: '150.000đ', desc: 'Thịt bò mềm xào cùng nấm hương tươi, hành tây, sốt dầu hào thơm',    img: IMGS.chaCa },
+        { name: 'Cà ri bò',               price: '140.000đ', desc: 'Thịt bò hầm mềm sốt cà ri vàng thơm, khoai tây, ăn kèm bánh mì',     img: IMGS.nomXoai },
+      ],
+    },
+    right: {
+      type: 'content', category: 'Món Gà', subtitle: 'Chicken Dishes',
+      items: [
+        { name: 'Gà nướng ống tre',      price: '150.000đ', desc: 'Gà ta nướng trong ống tre, gia vị thấm đều, thịt mềm thơm đặc biệt', img: IMGS.phoGa,   recommended: true },
+        { name: 'Gà kho gừng lá chanh', price: '160.000đ', desc: 'Gà ta kho sánh với gừng tươi và lá chanh, đậm đà thơm mát',            img: IMGS.banhXeo },
+        { name: 'Gà xào sả ớt',         price: '140.000đ', desc: 'Gà ta xào sả ớt tươi, thơm cay đặc trưng, ăn kèm cơm trắng',          img: IMGS.nemRan },
+        { name: 'Cà ri gà',             price: '130.000đ', desc: 'Gà ta hầm sốt cà ri vàng, khoai tây, nước dừa tươi, ăn kèm bánh mì',   img: IMGS.nomXoaiAlt },
+      ],
+    },
+  },
+
+  // ── Spread 4: Hải Sản + Tráng Miệng ──────────────────────
+  {
+    left: {
+      type: 'content', category: 'Hải Sản', subtitle: 'Seafood',
+      items: [
+        { name: 'Tôm rim nước dừa',  price: '180.000đ', desc: 'Tôm tươi rim cùng nước dừa tươi thơm ngọt, sốt sánh đặc biệt',      img: IMGS.goiCuon,   recommended: true },
+        { name: 'Mực rim nước dừa',  price: '180.000đ', desc: 'Mực lá tươi rim nước dừa béo ngậy, hành lá xanh thơm ngon',          img: IMGS.goiCuonAlt },
+        { name: 'Tôm xào hạt điều',  price: '180.000đ', desc: 'Tôm tươi xào cùng hạt điều rang bơ, ớt chuông, hành tây giòn thơm', img: IMGS.nomXoai },
+        { name: 'Mực xào dứa thơm',  price: '165.000đ', desc: 'Mực lá xào dứa tươi, cà chua bi, hành tây, sốt chua ngọt đặc biệt', img: IMGS.nomXoaiAlt },
+      ],
+    },
+    right: {
+      type: 'content', category: 'Tráng Miệng', subtitle: 'Desserts',
+      items: [
+        { name: 'Sữa chua nếp cẩm',     price: '65.000đ', desc: 'Nếp cẩm đen hầm dẻo ngọt, sữa chua tươi mát, vị ngọt thanh đặc biệt', img: IMGS.phoGa,   recommended: true },
+        { name: 'Bánh mousse chanh leo', price: '65.000đ', desc: 'Mousse chanh leo mát lạnh, lớp thạch trong vắt, vị chua ngọt thanh dịu', img: IMGS.banhXeo },
+        { name: 'Hoa quả thập cẩm',     price: '65.000đ', desc: 'Trái cây nhiệt đới tươi theo mùa — xoài, dứa, thanh long, dưa hấu',     img: IMGS.nomXoai },
+        { name: 'Bánh caramel',         price: '65.000đ', desc: 'Flan trứng sữa mềm mịn, sốt caramel đắng ngọt, trang trí hoa quả',      img: IMGS.bunCha },
+      ],
+    },
+  },
+
+  // ── Spread 5: Đồ Uống + Bìa sau ──────────────────────────
+  {
+    left: {
+      type: 'content', category: 'Đồ Uống', subtitle: 'Beverages',
+      items: [
+        { name: 'Cà phê trứng',        price: '75.000đ',        desc: 'Robusta đậm đà Hà Nội, lòng đỏ trứng gà đánh bông mịn, sữa đặc', img: IMGS.nemRan,   recommended: true },
+        { name: 'Cà phê dừa',          price: '75.000đ',        desc: 'Robusta pha phin, kem dừa tươi đánh bông, đặc sản Hội An',        img: IMGS.nemLuiAlt },
+        { name: 'Sinh tố xoài / chuối', price: '75.000đ',       desc: 'Xoài / chuối tươi xay đặc sánh, sữa tươi không đường, đá mát',   img: IMGS.nomXoai },
+        { name: 'Bia Huda · Saigon · Tiger', price: '35.000đ – 45.000đ', desc: 'Huda 35K · Saigon Special 40K · Tiger 45K · Rượu vang theo chai', img: IMGS.bunChaAlt },
+      ],
+    },
+    right: { type: 'cover', variant: 'right' },
   },
 ]
 
