@@ -7,133 +7,24 @@ import { useLang } from '../../context/LangContext'
 import { T } from '../../data/translations'
 import { RESTAURANT } from '../../data/restaurant'
 
-const IMGS = {
-  bunCha:    '/images/food_bun_cha_2.jpg',
-  banhXeo:   '/images/food_banh_xeo_2.jpg',
-  chaCa:     '/images/food_banh_xeo.jpg',
-  boNuong:   '/images/food_bo_nuong.jpg',
-  nemRan:    '/images/food_nem_ran.jpg',
-  goiCuon:   '/images/food_goi_cuon_2.jpg',
-  goiCuonAlt:'/images/food_goi_cuon.jpg',
-  nemLui:    '/images/food_nem_lui_2.jpg',
-  nemLuiAlt: '/images/food_nem_lui.jpg',
-  nomXoai:   '/images/food_nom_xoai_2.jpg',
-  nomXoaiAlt:'/images/food_nom_xoai.jpg',
-  phoBo:     '/images/food_pho_bo.jpg',
-  phoGa:     '/images/food_pho_ga_2.jpg',
-  phoGaAlt:  '/images/food_pho_ga.jpg',
-  comRang:   '/images/food_com_rang.jpg',
-  bunChaAlt: '/images/food_bun_cha.jpg',
-}
+const M = (n) => `/images/menu/Slide${n}.JPG`
 
 const SPREADS = [
-  // ── Spread 0: Bìa ──────────────────────────────────────────
-  {
-    left:  { type: 'cover', variant: 'left' },
-    right: { type: 'cover', variant: 'right' },
-  },
-
-  // ── Spread 1: Món Đặc Biệt + Khai Vị ──────────────────────
-  {
-    left: {
-      type: 'content', category: 'Món Đặc Biệt', subtitle: 'Highly Recommended',
-      items: [
-        { name: 'Bún chả Hà Nội',   price: '130.000đ', desc: 'Chả viên & chả miếng nướng than hoa, bún tươi, rau sống thơm', img: IMGS.bunCha,  recommended: true },
-        { name: 'Bánh xèo',         price: '130.000đ', desc: 'Vỏ giòn vàng rụm, tôm tươi, giá đỗ, nước chấm đặc biệt',      img: IMGS.banhXeo },
-        { name: 'Chả cá Hà Nội',   price: '160.000đ', desc: 'Cá fillet nướng nghệ thì là, mắm tôm, bún sợi, bánh đa bỏng',  img: IMGS.chaCa,  recommended: true },
-        { name: 'Bò nướng ống tre', price: '170.000đ', desc: 'Thịt bò tươi nướng trong ống tre, sốt gia vị đặc trưng',       img: IMGS.boNuong },
-      ],
-    },
-    right: {
-      type: 'content', category: 'Khai Vị', subtitle: 'Appetizers',
-      items: [
-        { name: 'Nem rán Hà Nội',     price: '85.000đ',  desc: 'Nhân thịt heo, mộc nhĩ, miến thơm, chiên vàng giòn rụm',     img: IMGS.nemRan,  recommended: true },
-        { name: 'Gỏi cuốn tôm thịt', price: '105.000đ', desc: 'Tôm tươi, thịt luộc, bún sợi, rau sống cuốn bánh tráng mỏng', img: IMGS.goiCuon },
-        { name: 'Nem lụi',            price: '120.000đ', desc: 'Thịt heo xay ướp sả nướng than hoa, chấm tương đậu phộng',    img: IMGS.nemLui },
-        { name: 'Nộm xoài tôm',      price: '130.000đ', desc: 'Xoài xanh chua, tôm tươi, rau thơm, đậu phộng rang giòn',    img: IMGS.nomXoai },
-      ],
-    },
-  },
-
-  // ── Spread 2: Phở & Mì Xào + Cơm Rang ────────────────────
-  {
-    left: {
-      type: 'content', category: 'Phở & Mì Xào', subtitle: 'Noodles',
-      items: [
-        { name: 'Phở bò tái chín',       price: '110.000đ', desc: 'Nước dùng hầm 12 tiếng từ xương bò, thịt tái chín thơm ngon',  img: IMGS.phoBo,     recommended: true },
-        { name: 'Phở gà ta',             price: '110.000đ', desc: 'Gà ta thả vườn, nước dùng trong vắt, hành lá thơm mát',         img: IMGS.phoGa },
-        { name: 'Phở chiên phồng',       price: '130.000đ', desc: 'Bánh phở chiên giòn phồng, thịt bò xào sốt dầu hào thơm ngon', img: IMGS.phoGaAlt },
-        { name: 'Phở / mì xào hải sản', price: '160.000đ', desc: 'Tôm, mực tươi xào cùng bánh phở hoặc mì trứng, rau củ xanh',   img: IMGS.goiCuonAlt },
-      ],
-    },
-    right: {
-      type: 'content', category: 'Cơm Rang', subtitle: 'Fried Rice',
-      items: [
-        { name: 'Cơm rang hải sản', price: '150.000đ', desc: 'Tôm, mực tươi, trứng gà, cơm rang lửa lớn hạt rời thơm ngon',  img: IMGS.comRang,   recommended: true },
-        { name: 'Cơm rang tôm dứa', price: '150.000đ', desc: 'Tôm tươi, dứa thơm, ngô ngọt, cơm rang đặc biệt màu vàng ươm', img: IMGS.nomXoaiAlt },
-        { name: 'Cơm rang tôm',     price: '130.000đ', desc: 'Tôm tươi to, trứng gà, hành lá xanh, cơm dẻo hạt rời',         img: IMGS.goiCuon },
-        { name: 'Cơm rang bò',      price: '120.000đ', desc: 'Thịt bò mềm, ớt chuông, ngô ngọt, thơm mùi tiêu đen',          img: IMGS.boNuong },
-      ],
-    },
-  },
-
-  // ── Spread 3: Món Bò + Món Gà ─────────────────────────────
-  {
-    left: {
-      type: 'content', category: 'Món Bò', subtitle: 'Beef Dishes',
-      items: [
-        { name: 'Bò xào lúc lắc',         price: '170.000đ', desc: 'Thịt bò thăn mềm xào lúc lắc, ớt chuông, hành tây, khoai tây chiên', img: IMGS.boNuong,   recommended: true },
-        { name: 'Bò nướng sốt tiêu xanh', price: '150.000đ', desc: 'Thịt bò nướng than hoa, sốt tiêu xanh Campuchia thơm cay đặc biệt',   img: IMGS.bunChaAlt },
-        { name: 'Bò xào nấm tươi',        price: '150.000đ', desc: 'Thịt bò mềm xào cùng nấm hương tươi, hành tây, sốt dầu hào thơm',    img: IMGS.chaCa },
-        { name: 'Cà ri bò',               price: '140.000đ', desc: 'Thịt bò hầm mềm sốt cà ri vàng thơm, khoai tây, ăn kèm bánh mì',     img: IMGS.nomXoai },
-      ],
-    },
-    right: {
-      type: 'content', category: 'Món Gà', subtitle: 'Chicken Dishes',
-      items: [
-        { name: 'Gà nướng ống tre',      price: '150.000đ', desc: 'Gà ta nướng trong ống tre, gia vị thấm đều, thịt mềm thơm đặc biệt', img: IMGS.phoGa,   recommended: true },
-        { name: 'Gà kho gừng lá chanh', price: '160.000đ', desc: 'Gà ta kho sánh với gừng tươi và lá chanh, đậm đà thơm mát',            img: IMGS.banhXeo },
-        { name: 'Gà xào sả ớt',         price: '140.000đ', desc: 'Gà ta xào sả ớt tươi, thơm cay đặc trưng, ăn kèm cơm trắng',          img: IMGS.nemRan },
-        { name: 'Cà ri gà',             price: '130.000đ', desc: 'Gà ta hầm sốt cà ri vàng, khoai tây, nước dừa tươi, ăn kèm bánh mì',   img: IMGS.nomXoaiAlt },
-      ],
-    },
-  },
-
-  // ── Spread 4: Hải Sản + Tráng Miệng ──────────────────────
-  {
-    left: {
-      type: 'content', category: 'Hải Sản', subtitle: 'Seafood',
-      items: [
-        { name: 'Tôm rim nước dừa',  price: '180.000đ', desc: 'Tôm tươi rim cùng nước dừa tươi thơm ngọt, sốt sánh đặc biệt',      img: IMGS.goiCuon,   recommended: true },
-        { name: 'Mực rim nước dừa',  price: '180.000đ', desc: 'Mực lá tươi rim nước dừa béo ngậy, hành lá xanh thơm ngon',          img: IMGS.goiCuonAlt },
-        { name: 'Tôm xào hạt điều',  price: '180.000đ', desc: 'Tôm tươi xào cùng hạt điều rang bơ, ớt chuông, hành tây giòn thơm', img: IMGS.nomXoai },
-        { name: 'Mực xào dứa thơm',  price: '165.000đ', desc: 'Mực lá xào dứa tươi, cà chua bi, hành tây, sốt chua ngọt đặc biệt', img: IMGS.nomXoaiAlt },
-      ],
-    },
-    right: {
-      type: 'content', category: 'Tráng Miệng', subtitle: 'Desserts',
-      items: [
-        { name: 'Sữa chua nếp cẩm',     price: '65.000đ', desc: 'Nếp cẩm đen hầm dẻo ngọt, sữa chua tươi mát, vị ngọt thanh đặc biệt', img: IMGS.phoGa,   recommended: true },
-        { name: 'Bánh mousse chanh leo', price: '65.000đ', desc: 'Mousse chanh leo mát lạnh, lớp thạch trong vắt, vị chua ngọt thanh dịu', img: IMGS.banhXeo },
-        { name: 'Hoa quả thập cẩm',     price: '65.000đ', desc: 'Trái cây nhiệt đới tươi theo mùa — xoài, dứa, thanh long, dưa hấu',     img: IMGS.nomXoai },
-        { name: 'Bánh caramel',         price: '65.000đ', desc: 'Flan trứng sữa mềm mịn, sốt caramel đắng ngọt, trang trí hoa quả',      img: IMGS.bunCha },
-      ],
-    },
-  },
-
-  // ── Spread 5: Đồ Uống + Bìa sau ──────────────────────────
-  {
-    left: {
-      type: 'content', category: 'Đồ Uống', subtitle: 'Beverages',
-      items: [
-        { name: 'Cà phê trứng',        price: '75.000đ',        desc: 'Robusta đậm đà Hà Nội, lòng đỏ trứng gà đánh bông mịn, sữa đặc', img: IMGS.nemRan,   recommended: true },
-        { name: 'Cà phê dừa',          price: '75.000đ',        desc: 'Robusta pha phin, kem dừa tươi đánh bông, đặc sản Hội An',        img: IMGS.nemLuiAlt },
-        { name: 'Sinh tố xoài / chuối', price: '75.000đ',       desc: 'Xoài / chuối tươi xay đặc sánh, sữa tươi không đường, đá mát',   img: IMGS.nomXoai },
-        { name: 'Bia Huda · Saigon · Tiger', price: '35.000đ – 45.000đ', desc: 'Huda 35K · Saigon Special 40K · Tiger 45K · Rượu vang theo chai', img: IMGS.bunChaAlt },
-      ],
-    },
-    right: { type: 'cover', variant: 'right' },
-  },
+  { left: { type: 'cover', variant: 'left' },  right: { type: 'image', src: M(1),  alt: 'Bìa thực đơn' } },
+  { left: { type: 'image', src: M(2),  alt: 'Hướng dẫn' },          right: { type: 'image', src: M(3),  alt: 'Món Đặc Biệt' } },
+  { left: { type: 'image', src: M(4),  alt: 'Khai Vị' },            right: { type: 'image', src: M(5),  alt: 'Nộm – Salad' } },
+  { left: { type: 'image', src: M(6),  alt: 'Súp' },                right: { type: 'image', src: M(7),  alt: 'Món Phụ' } },
+  { left: { type: 'image', src: M(8),  alt: 'Món Gà' },             right: { type: 'image', src: M(9),  alt: 'Món Vịt' } },
+  { left: { type: 'image', src: M(10), alt: 'Món Cá' },             right: { type: 'image', src: M(11), alt: 'Món Bò' } },
+  { left: { type: 'image', src: M(12), alt: 'Hải Sản' },            right: { type: 'image', src: M(13), alt: 'Món Lợn' } },
+  { left: { type: 'image', src: M(14), alt: 'Phở & Mì Xào' },      right: { type: 'image', src: M(15), alt: 'Cơm Rang' } },
+  { left: { type: 'image', src: M(16), alt: 'Súp Chay' },           right: { type: 'image', src: M(17), alt: 'Khai Vị Chay' } },
+  { left: { type: 'image', src: M(18), alt: 'Món Chính Chay' },     right: { type: 'image', src: M(19), alt: 'Tráng Miệng' } },
+  { left: { type: 'image', src: M(20), alt: 'Nước Hoa Quả' },       right: { type: 'image', src: M(21), alt: 'Cà Phê' } },
+  { left: { type: 'image', src: M(22), alt: 'Trà Việt Nam' },       right: { type: 'image', src: M(23), alt: 'Bia' } },
+  { left: { type: 'image', src: M(24), alt: 'Nước Ngọt' },          right: { type: 'image', src: M(25), alt: 'Rượu Truyền Thống' } },
+  { left: { type: 'image', src: M(26), alt: 'Vang Đỏ' },            right: { type: 'image', src: M(27), alt: 'Vang Trắng' } },
+  { left: { type: 'image', src: M(28), alt: 'Cảm ơn' },             right: { type: 'cover', variant: 'right' } },
 ]
 
 /* Flatten spreads into individual pages for mobile single-page view */
@@ -462,9 +353,31 @@ function FlipPage({ dir, frontPage, backPage, onComplete }) {
 
 /* ── Page dispatcher ── */
 function Page({ page, side, mobile = false }) {
-  return page.type === 'cover'
-    ? <CoverPage variant={page.variant} mobile={mobile} />
-    : <ContentPage page={page} side={side} mobile={mobile} />
+  if (page.type === 'cover') return <CoverPage variant={page.variant} mobile={mobile} />
+  if (page.type === 'image') return <ImagePage page={page} side={side} />
+  return null
+}
+
+/* ── Menu slide image page ── */
+function ImagePage({ page, side }) {
+  return (
+    <div style={{
+      width: '100%', height: '100%', overflow: 'hidden',
+      background: '#1a0608', position: 'relative',
+    }}>
+      <img
+        src={page.src}
+        alt={page.alt}
+        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+        loading="lazy"
+      />
+      {/* Spine shadow */}
+      {side === 'right'
+        ? <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 20, background: 'linear-gradient(to right, rgba(0,0,0,.25), transparent)', pointerEvents: 'none' }} />
+        : <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: 14, background: 'linear-gradient(to left, rgba(0,0,0,.15), transparent)', pointerEvents: 'none' }} />
+      }
+    </div>
+  )
 }
 
 /* ── Cover page ── */
@@ -540,96 +453,3 @@ function CoverPage({ variant, mobile = false }) {
   )
 }
 
-/* ── Content page ── */
-function ContentPage({ page, side, mobile = false }) {
-  const imgSize   = mobile ? 76 : 'clamp(60px, 7.5vw, 88px)'
-  const pad       = mobile ? '22px' : 'clamp(18px, 3vw, 36px)'
-  const itemGap   = mobile ? 14 : 'clamp(10px, 1.6vw, 18px)'
-  const catSize   = mobile ? '1.75rem' : 'clamp(1.25rem, 2.8vw, 2rem)'
-  const nameSize  = mobile ? '0.92rem' : 'clamp(.78rem, 1.5vw, 1.02rem)'
-  const priceSize = mobile ? '0.88rem' : 'clamp(.75rem, 1.4vw, .98rem)'
-  const descSize  = mobile ? '11px' : 'clamp(10px, 1.1vw, 13px)'
-  const badgeSize = mobile ? 9 : 7
-
-  return (
-    <div style={{
-      width: '100%', height: '100%', position: 'relative',
-      background: 'linear-gradient(160deg, #fdf4e0 0%, #f5e6c4 100%)',
-      overflow: 'hidden',
-    }}>
-      {/* Ruled lines */}
-      <div style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 33px,rgba(155,27,46,.04) 33px,rgba(155,27,46,.04) 34px)',
-      }} />
-      {/* Spine shadow */}
-      {side === 'right'
-        ? <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 28, background: 'linear-gradient(to right, rgba(0,0,0,.13), transparent)', pointerEvents: 'none', zIndex: 2 }} />
-        : <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: 18, background: 'linear-gradient(to left, rgba(0,0,0,.09), transparent)', pointerEvents: 'none', zIndex: 2 }} />
-      }
-
-      <div style={{ position: 'relative', zIndex: 3, height: '100%', display: 'flex', flexDirection: 'column', padding: pad }}>
-        {/* Category header */}
-        <div style={{ marginBottom: mobile ? 16 : 14, paddingBottom: 10, borderBottom: '1px solid rgba(155,27,46,.2)' }}>
-          <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: catSize, fontWeight: 700, color: '#9b1b2e', lineHeight: 1, marginBottom: 3 }}>
-            {page.category}
-          </h3>
-          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(28,10,0,.35)' }}>
-            {page.subtitle}
-          </p>
-        </div>
-
-        {/* Dishes */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: itemGap }}>
-          {page.items.map((item) => (
-            <div key={item.name} style={{ display: 'flex', gap: mobile ? 12 : 'clamp(7px, 1.2vw, 12px)', alignItems: 'flex-start' }}>
-              {/* Thumbnail */}
-              <div style={{
-                width: imgSize, height: imgSize, flexShrink: 0,
-                overflow: 'hidden', border: '1px solid rgba(155,27,46,.12)', borderRadius: 2,
-              }}>
-                <img src={item.img} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
-              </div>
-
-              {/* Info */}
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 6, marginBottom: 2 }}>
-                  {/* Name + badge */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 5, flexWrap: 'wrap', minWidth: 0 }}>
-                    <p style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: nameSize, color: '#1c0a00', lineHeight: 1.3 }}>
-                      {item.name}
-                    </p>
-                    {item.recommended && (
-                      <span style={{
-                        display: 'inline-flex', alignItems: 'center',
-                        background: 'rgba(201,164,90,.88)', color: '#3a0a10',
-                        fontSize: badgeSize, fontFamily: 'var(--font-sans)',
-                        letterSpacing: '0.08em', padding: '1px 5px',
-                        borderRadius: 2, textTransform: 'uppercase',
-                        fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0,
-                      }}>
-                        ★ Gợi Ý
-                      </span>
-                    )}
-                  </div>
-                  <span style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: priceSize, color: '#9b1b2e', flexShrink: 0 }}>
-                    {item.price}
-                  </span>
-                </div>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: descSize, color: 'rgba(28,10,0,.45)', lineHeight: 1.45 }}>
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Footer */}
-        <div style={{ marginTop: 10, paddingTop: 8, borderTop: '1px solid rgba(155,27,46,.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontFamily: 'var(--font-serif)', fontSize: 9, color: 'rgba(28,10,0,.2)', fontStyle: 'italic' }}>{RESTAURANT.name}</span>
-          <span style={{ color: 'rgba(155,27,46,.22)', fontSize: 10, letterSpacing: 4 }}>✦✦✦</span>
-        </div>
-      </div>
-    </div>
-  )
-}
