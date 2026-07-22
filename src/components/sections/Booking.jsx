@@ -24,7 +24,8 @@ export default function Booking() {
     setSubmitError('')
     try {
       const guestCount = parseInt(form.guests) || 1
-      const reservedAt = new Date(`${form.date}T${form.time}:00`).toISOString()
+      // Gắn timezone +07:00 để tránh lệch giờ do browser parse local/UTC khác nhau
+      const reservedAt = new Date(`${form.date}T${form.time}:00+07:00`).toISOString()
       const API_BASE = import.meta.env.VITE_RESTAURANT_API || 'https://gaoaccomondation.com/restaurant-api'
       const res = await fetch(
         `${API_BASE}/api/reservations/public`,
@@ -187,10 +188,16 @@ export default function Booking() {
                       </select>
                     </Field>
                     <Field icon={<Users size={11} />} label={t.guests}>
-                      <select required value={form.guests} onChange={set('guests')} className="input-field">
-                        <option value="">{t.guestPh}</option>
-                        {RESTAURANT.bookingGuestOptions.map((g) => <option key={g} value={g}>{g}</option>)}
-                      </select>
+                      <input
+                        required
+                        type="number"
+                        min="1"
+                        max="100"
+                        placeholder="2"
+                        value={form.guests}
+                        onChange={set('guests')}
+                        className="input-field"
+                      />
                     </Field>
                   </div>
                   <Field icon={<MessageSquare size={11} />} label={t.note}>
