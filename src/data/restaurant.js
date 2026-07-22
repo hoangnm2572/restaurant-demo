@@ -38,13 +38,14 @@ export const RESTAURANT = {
     { label: 'Đặt bàn', href: '#booking' },
   ],
 
-  bookingTimes: [
-    '11:00', '11:30', '12:00', '12:30', '13:00',
-    '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00',
-  ],
-
-  bookingGuestOptions: [
-    '1 người', '2 người', '3 người', '4 người',
-    '5 người', '6 người', '7–10 người', '10+ người',
-  ],
+  bookingTimes: (() => {
+    const times = [];
+    for (let h = 10; h <= 23; h++) {
+      for (let m = 0; m < 60; m += 15) {
+        if (h === 23 && m > 0) break;
+        times.push(`${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`);
+      }
+    }
+    return times;
+  })(),
 }

@@ -16,6 +16,7 @@ export default function Booking() {
   const [sent, setSent] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
+  const [guestOver5, setGuestOver5] = useState(false)
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
 
   const handleSubmit = async (e) => {
@@ -188,16 +189,51 @@ export default function Booking() {
                       </select>
                     </Field>
                     <Field icon={<Users size={11} />} label={t.guests}>
-                      <input
-                        required
-                        type="number"
-                        min="1"
-                        max="100"
-                        placeholder="2"
-                        value={form.guests}
-                        onChange={set('guests')}
-                        className="input-field"
-                      />
+                      {guestOver5 ? (
+                        <div style={{ position: 'relative' }}>
+                          <input
+                            autoFocus
+                            required
+                            type="number"
+                            min="6"
+                            max="500"
+                            placeholder="Nhập số khách"
+                            value={form.guests}
+                            onChange={set('guests')}
+                            className="input-field"
+                            style={{ paddingRight: 60 }}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => { setGuestOver5(false); setForm((f) => ({ ...f, guests: '' })) }}
+                            style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'rgba(201,164,90,.7)', fontSize: 11, cursor: 'pointer', fontFamily: 'var(--font-sans)', whiteSpace: 'nowrap' }}
+                          >
+                            ← Quay lại
+                          </button>
+                        </div>
+                      ) : (
+                        <select
+                          required
+                          value={form.guests}
+                          onChange={(e) => {
+                            if (e.target.value === 'over5') {
+                              setGuestOver5(true)
+                              setForm((f) => ({ ...f, guests: '' }))
+                            } else {
+                              setForm((f) => ({ ...f, guests: e.target.value }))
+                            }
+                          }}
+                          className="input-field"
+                        >
+                          <option value="">Chọn số khách</option>
+                          <option value="1">1 người</option>
+                          <option value="2">2 người</option>
+                          <option value="3">3 người</option>
+                          <option value="4">4 người</option>
+                          <option value="5">5 người</option>
+                          <option value="over5">Trên 5 người →</option>
+                        </select>
+                      )}
                     </Field>
                   </div>
                   <Field icon={<MessageSquare size={11} />} label={t.note}>
