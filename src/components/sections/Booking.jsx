@@ -14,7 +14,40 @@ export default function Booking() {
 
   const [form, setForm] = useState({ name: '', phone: '', date: '', time: '', guests: '', note: '' })
   const [sent, setSent] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setSubmitting(true)
+    setSubmitError('')
+    try {
+      const guestCount = parseInt(form.guests) || 1
+      const reservedAt = new Date(`${form.date}T${form.time}:00`).toISOString()
+      const res = await fetch(
+        `${import.meta.env.VITE_RESTAURANT_API}/api/reservations/public`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            guestName: form.name,
+            guestPhone: form.phone || null,
+            reservedAt,
+            guestCount,
+            specialRequest: form.note || null,
+            tableIds: [],
+          }),
+        }
+      )
+      if (!res.ok) throw new Error('Lỗi gửi đặt bàn')
+      setSent(true)
+    } catch {
+      setSubmitError('Không thể gửi đặt bàn. Vui lòng thử lại hoặc gọi hotline.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <section id="booking" style={{ background: 'var(--color-ink)', padding: '72px 0', position: 'relative', overflow: 'hidden' }}>
@@ -133,7 +166,7 @@ export default function Booking() {
                   </button>
                 </motion.div>
               ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSent(true) }} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                     <Field icon={<User size={11} />} label={t.name}>
                       <input required type="text" placeholder="Nguyễn Văn A" value={form.name} onChange={set('name')} className="input-field" />
@@ -162,10 +195,15 @@ export default function Booking() {
                   <Field icon={<MessageSquare size={11} />} label={t.note}>
                     <textarea rows={3} placeholder={t.notePh} value={form.note} onChange={set('note')} className="input-field" style={{ resize: 'none' }} />
                   </Field>
-                  <Button type="submit" style={{ marginTop: 4, width: '100%', textAlign: 'center', display: 'block' }}>
+                  {submitError && (
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: 13, color: '#f87171', textAlign: 'center' }}>
+                      {submitError}
+                    </p>
+                  )}
+                  <Button type="submit" disabled={submitting} style={{ marginTop: 4, width: '100%', textAlign: 'center', display: 'block', opacity: submitting ? 0.7 : 1 }}>
                     <AnimatePresence mode="wait">
                       <motion.span key={lang + 'book-submit'} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
-                        {t.submit}
+                        {submitting ? 'Đang gửi...' : t.submit}
                       </motion.span>
                     </AnimatePresence>
                   </Button>
