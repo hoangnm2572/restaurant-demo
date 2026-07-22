@@ -25,8 +25,9 @@ export default function Booking() {
     try {
       const guestCount = parseInt(form.guests) || 1
       const reservedAt = new Date(`${form.date}T${form.time}:00`).toISOString()
+      const API_BASE = import.meta.env.VITE_RESTAURANT_API || 'https://gaoaccomondation.com/restaurant-api'
       const res = await fetch(
-        `${import.meta.env.VITE_RESTAURANT_API}/api/reservations/public`,
+        `${API_BASE}/api/reservations/public`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
