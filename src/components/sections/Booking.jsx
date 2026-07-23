@@ -25,8 +25,7 @@ export default function Booking() {
     setSubmitError('')
     try {
       const guestCount = parseInt(form.guests) || 1
-      // Gắn timezone +07:00 để tránh lệch giờ do browser parse local/UTC khác nhau
-      const reservedAt = new Date(`${form.date}T${form.time}:00+07:00`).toISOString()
+      const reservedAt = `${form.date}T${form.time}:00`
       const API_BASE = import.meta.env.VITE_RESTAURANT_API || 'https://gaoaccomondation.com/restaurant-api'
       const res = await fetch(
         `${API_BASE}/api/reservations/public`,
@@ -180,7 +179,7 @@ export default function Booking() {
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
                     <Field icon={<Calendar size={11} />} label={t.date}>
-                      <input required type="date" value={form.date} onChange={set('date')} min={new Date().toISOString().split('T')[0]} className="input-field" />
+                      <input required type="date" value={form.date} onChange={set('date')} min={new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Ho_Chi_Minh' }).format(new Date())} className="input-field" />
                     </Field>
                     <Field icon={<Clock size={11} />} label={t.time}>
                       <select required value={form.time} onChange={set('time')} className="input-field">
